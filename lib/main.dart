@@ -1,3 +1,5 @@
+import 'package:drahim_services_task/core/config/theme.dart';
+import 'package:drahim_services_task/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,23 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: AppTheme.lightTheme,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('My Widget'),
-        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
+            children: [
+              Text(
                 'Hello, World!',
+                style: AppTheme.titleStyle,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle button press
-                },
-                child: const Text('Press Me'),
-              ),
+              Assets.images.analysis.image()
             ],
           ),
         ),
