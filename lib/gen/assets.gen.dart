@@ -170,47 +170,47 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-    analysis,
-    analysisDark,
-    autoDeduction,
-    autoDeductionDark,
-    budgets,
-    budgetsDark,
-    commitments,
-    commitmentsDark,
-    customPortfolios,
-    customPortfoliosDark,
-    drahimPlus,
-    drahimPlusDark,
-    drahimPrivate,
-    drahimPrivateDark,
-    expesnsesVsIncome,
-    expesnsesVsIncomeDark,
-    goals,
-    goalsDark,
-    gptService,
-    gptServiceDark,
-    investmentCalc,
-    investmentCalcDark,
-    investmentFeesGuide,
-    investmentFeesGuideDark,
-    manualAccount,
-    manualAccountDark,
-    networth,
-    networthDark,
-    newPortfolio,
-    newPortfolioDark,
-    ob,
-    obDark,
-    peerComparison,
-    peerComparisonDark,
-    referral,
-    referralDark,
-    stockTracking,
-    stockTrackingDark,
-    zakatService,
-    zakatServiceDark,
-  ];
+        analysis,
+        analysisDark,
+        autoDeduction,
+        autoDeductionDark,
+        budgets,
+        budgetsDark,
+        commitments,
+        commitmentsDark,
+        customPortfolios,
+        customPortfoliosDark,
+        drahimPlus,
+        drahimPlusDark,
+        drahimPrivate,
+        drahimPrivateDark,
+        expesnsesVsIncome,
+        expesnsesVsIncomeDark,
+        goals,
+        goalsDark,
+        gptService,
+        gptServiceDark,
+        investmentCalc,
+        investmentCalcDark,
+        investmentFeesGuide,
+        investmentFeesGuideDark,
+        manualAccount,
+        manualAccountDark,
+        networth,
+        networthDark,
+        newPortfolio,
+        newPortfolioDark,
+        ob,
+        obDark,
+        peerComparison,
+        peerComparisonDark,
+        referral,
+        referralDark,
+        stockTracking,
+        stockTrackingDark,
+        zakatService,
+        zakatServiceDark
+      ];
 }
 
 class Assets {
@@ -220,7 +220,11 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
 
@@ -280,8 +284,15 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({AssetBundle? bundle, String? package}) {
-    return AssetImage(_assetName, bundle: bundle, package: package);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
   }
 
   String get path => _assetName;
