@@ -5,10 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'services_state.freezed.dart';
 
-extension JokesGetters on ServicesState {
-  bool get isLoading => this is _ServicesStateLoading;
-}
-
 @freezed
 class ServicesState with _$ServicesState {
   const factory ServicesState.initial() = _ServicesStateInitial;
