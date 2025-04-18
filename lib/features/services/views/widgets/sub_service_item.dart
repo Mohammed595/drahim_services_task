@@ -1,5 +1,5 @@
 import 'package:drahim_services_task/features/services/data/models/service_model.dart';
-import 'package:drahim_services_task/gen/assets.gen.dart';
+import 'package:drahim_services_task/features/services/views/service_image_helper.dart';
 import 'package:flutter/material.dart';
 
 class SubServiceItem extends StatelessWidget {
@@ -24,7 +24,10 @@ class SubServiceItem extends StatelessWidget {
               width: 45,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Assets.images.customPortfolios.image(fit: BoxFit.cover),
+                child: Image.asset(
+                  ServiceImageHelper.getSubServiceImage(subService.id),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
