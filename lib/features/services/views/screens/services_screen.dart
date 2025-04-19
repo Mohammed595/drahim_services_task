@@ -2,6 +2,7 @@ import 'package:drahim_services_task/features/services/view_models/scroll_state_
 import 'package:drahim_services_task/features/services/view_models/services_view_model/services_provider.dart';
 import 'package:drahim_services_task/features/services/views/widgets/services_app_bar.dart';
 import 'package:drahim_services_task/features/services/views/widgets/services_list.dart';
+import 'package:drahim_services_task/features/services/views/widgets/services_loading_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -44,7 +45,7 @@ class _ServicesScreenState extends ConsumerState<ServicesScreen> {
           ServicesAppBar(isScrolling: isScrolling),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6),
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
               child: Text(
                 'Darahim Service',
                 style: Theme.of(context).textTheme.headlineLarge,
@@ -53,11 +54,10 @@ class _ServicesScreenState extends ConsumerState<ServicesScreen> {
           ),
           state.maybeWhen(
             orElse: () => const SliverToBoxAdapter(child: SizedBox.shrink()),
-            loading: () => const SliverToBoxAdapter(
-                child: Center(child: CircularProgressIndicator())),
+            loading: () => ServicesLoadingSkeleton(),
             success: (services) => ServicesList(services: services.services),
             error: (error) => SliverToBoxAdapter(
-              child: Center(child: Text(error.toString())),
+              child: Center(child: Text(error!.en)),
             ),
           ),
         ],
