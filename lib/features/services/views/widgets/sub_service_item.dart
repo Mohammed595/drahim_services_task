@@ -15,7 +15,6 @@ class SubServiceItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Handle tap
         return _showAnimatedBottomSheet(context, subService);
       },
       child: Row(
