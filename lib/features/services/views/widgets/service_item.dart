@@ -31,7 +31,7 @@ class ServiceItem extends StatelessWidget {
               ),
             ],
           ),
-          child: SubServicesList(subServices: service.sub_services),
+          child: SubServicesList(subServices: service.subServices),
         ),
       ],
     );

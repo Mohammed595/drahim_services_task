@@ -22,18 +22,18 @@ Map<String, dynamic> _$$ServicesResponseImplToJson(
 
 _$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
     _$ServiceImpl(
-      id: (json['id'] as num).toInt(),
-      title: TranslatedText.fromJson(json['title'] as Map<String, dynamic>),
-      sub_services: (json['sub_services'] as List<dynamic>)
+      subServices: (json['sub_services'] as List<dynamic>)
           .map((e) => SubService.fromJson(e as Map<String, dynamic>))
           .toList(),
+      id: (json['id'] as num).toInt(),
+      title: TranslatedText.fromJson(json['title'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
     <String, dynamic>{
+      'sub_services': instance.subServices,
       'id': instance.id,
       'title': instance.title,
-      'sub_services': instance.sub_services,
     };
 
 _$SubServiceImpl _$$SubServiceImplFromJson(Map<String, dynamic> json) =>

@@ -17,9 +17,9 @@ class ServicesResponse with _$ServicesResponse {
 @freezed
 class Service with _$Service {
   const factory Service({
+    @JsonKey(name: 'sub_services') required List<SubService> subServices,
     required int id,
     required TranslatedText title,
-    required List<SubService> sub_services,
   }) = _Service;
 
   factory Service.fromJson(Map<String, dynamic> json) =>

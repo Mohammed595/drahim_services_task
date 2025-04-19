@@ -23,7 +23,7 @@ class ServicesLoadingSkeleton extends StatelessWidget {
                 en: 'Service -->',
                 ar: '<-- الخدمة',
               ),
-              sub_services: List.generate(
+              subServices: List.generate(
                 7,
                 (subIndex) => SubService(
                   description: TranslatedText(
