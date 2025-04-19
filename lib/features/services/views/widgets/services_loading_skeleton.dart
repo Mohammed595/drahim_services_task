@@ -13,7 +13,7 @@ class ServicesLoadingSkeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverFillRemaining(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         child: Skeletonizer(
           enabled: true,
           child: ServiceItem(
