@@ -15,8 +15,11 @@ class ServicesRemoteDataSource implements IServiceRepository {
   @override
   Future<Either<TranslatedText, ServicesResponse>> getServices() async {
     try {
-      final response =
-          await http.get(Uri.parse(DrahimServiceEndpoints.services));
+      final response = await http.get(
+        Uri.parse(
+          DrahimServiceEndpoints.services,
+        ),
+      );
 
       return ApiResponseHandler.handleResponse(response).fold(
         (error) => Left(error),

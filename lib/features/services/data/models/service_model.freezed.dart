@@ -178,9 +178,10 @@ Service _$ServiceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Service {
+  @JsonKey(name: 'sub_services')
+  List<SubService> get subServices => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   TranslatedText get title => throw _privateConstructorUsedError;
-  List<SubService> get sub_services => throw _privateConstructorUsedError;
 
   /// Serializes this Service to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -196,7 +197,10 @@ abstract class $ServiceCopyWith<$Res> {
   factory $ServiceCopyWith(Service value, $Res Function(Service) then) =
       _$ServiceCopyWithImpl<$Res, Service>;
   @useResult
-  $Res call({int id, TranslatedText title, List<SubService> sub_services});
+  $Res call(
+      {@JsonKey(name: 'sub_services') List<SubService> subServices,
+      int id,
+      TranslatedText title});
 
   $TranslatedTextCopyWith<$Res> get title;
 }
@@ -216,11 +220,15 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? subServices = null,
     Object? id = null,
     Object? title = null,
-    Object? sub_services = null,
   }) {
     return _then(_value.copyWith(
+      subServices: null == subServices
+          ? _value.subServices
+          : subServices // ignore: cast_nullable_to_non_nullable
+              as List<SubService>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -229,10 +237,6 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as TranslatedText,
-      sub_services: null == sub_services
-          ? _value.sub_services
-          : sub_services // ignore: cast_nullable_to_non_nullable
-              as List<SubService>,
     ) as $Val);
   }
 
@@ -254,7 +258,10 @@ abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
       __$$ServiceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, TranslatedText title, List<SubService> sub_services});
+  $Res call(
+      {@JsonKey(name: 'sub_services') List<SubService> subServices,
+      int id,
+      TranslatedText title});
 
   @override
   $TranslatedTextCopyWith<$Res> get title;
@@ -273,11 +280,15 @@ class __$$ServiceImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? subServices = null,
     Object? id = null,
     Object? title = null,
-    Object? sub_services = null,
   }) {
     return _then(_$ServiceImpl(
+      subServices: null == subServices
+          ? _value._subServices
+          : subServices // ignore: cast_nullable_to_non_nullable
+              as List<SubService>,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -286,10 +297,6 @@ class __$$ServiceImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as TranslatedText,
-      sub_services: null == sub_services
-          ? _value._sub_services
-          : sub_services // ignore: cast_nullable_to_non_nullable
-              as List<SubService>,
     ));
   }
 }
@@ -298,29 +305,32 @@ class __$$ServiceImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ServiceImpl implements _Service {
   const _$ServiceImpl(
-      {required this.id,
-      required this.title,
-      required final List<SubService> sub_services})
-      : _sub_services = sub_services;
+      {@JsonKey(name: 'sub_services')
+      required final List<SubService> subServices,
+      required this.id,
+      required this.title})
+      : _subServices = subServices;
 
   factory _$ServiceImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServiceImplFromJson(json);
+
+  final List<SubService> _subServices;
+  @override
+  @JsonKey(name: 'sub_services')
+  List<SubService> get subServices {
+    if (_subServices is EqualUnmodifiableListView) return _subServices;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_subServices);
+  }
 
   @override
   final int id;
   @override
   final TranslatedText title;
-  final List<SubService> _sub_services;
-  @override
-  List<SubService> get sub_services {
-    if (_sub_services is EqualUnmodifiableListView) return _sub_services;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sub_services);
-  }
 
   @override
   String toString() {
-    return 'Service(id: $id, title: $title, sub_services: $sub_services)';
+    return 'Service(subServices: $subServices, id: $id, title: $title)';
   }
 
   @override
@@ -328,16 +338,16 @@ class _$ServiceImpl implements _Service {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ServiceImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality()
-                .equals(other._sub_services, _sub_services));
+                .equals(other._subServices, _subServices) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title,
-      const DeepCollectionEquality().hash(_sub_services));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_subServices), id, title);
 
   /// Create a copy of Service
   /// with the given fields replaced by the non-null parameter values.
@@ -357,18 +367,20 @@ class _$ServiceImpl implements _Service {
 
 abstract class _Service implements Service {
   const factory _Service(
-      {required final int id,
-      required final TranslatedText title,
-      required final List<SubService> sub_services}) = _$ServiceImpl;
+      {@JsonKey(name: 'sub_services')
+      required final List<SubService> subServices,
+      required final int id,
+      required final TranslatedText title}) = _$ServiceImpl;
 
   factory _Service.fromJson(Map<String, dynamic> json) = _$ServiceImpl.fromJson;
 
   @override
+  @JsonKey(name: 'sub_services')
+  List<SubService> get subServices;
+  @override
   int get id;
   @override
   TranslatedText get title;
-  @override
-  List<SubService> get sub_services;
 
   /// Create a copy of Service
   /// with the given fields replaced by the non-null parameter values.
