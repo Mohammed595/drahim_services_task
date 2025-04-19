@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:drahim_services_task/core/config/theme.dart';
+import 'package:drahim_services_task/features/services/views/screens/test_screen.dart';
 import 'package:drahim_services_task/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -37,7 +38,12 @@ class ServicesAppBar extends StatelessWidget {
           child: InkWell(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onTap: () => print('ask Abdullah'),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MyWidget(),
+              ),
+            ),
             child: Assets.images.askDrahim.image(fit: BoxFit.cover),
           ),
         ),

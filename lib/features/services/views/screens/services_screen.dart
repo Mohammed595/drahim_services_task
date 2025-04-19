@@ -57,7 +57,9 @@ class _ServicesScreenState extends ConsumerState<ServicesScreen> {
             loading: () => ServicesLoadingSkeleton(),
             success: (services) => ServicesList(services: services.services),
             error: (error) => SliverToBoxAdapter(
-              child: Center(child: Text(error!.en)),
+              child: Center(
+                child: Text(error!.en),
+              ),
             ),
           ),
         ],
