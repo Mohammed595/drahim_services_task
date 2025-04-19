@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:drahim_services_task/core/config/theme.dart';
+import 'package:drahim_services_task/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -22,28 +23,43 @@ class ServicesAppBar extends StatelessWidget {
               'Drahim Services',
               style: Theme.of(context).textTheme.bodySmall,
             ).animate().fadeIn(
-                delay: const Duration(milliseconds: 20),
+                delay: const Duration(
+                  milliseconds: 20,
+                ),
               )
           : null,
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(
+            right: 10.0,
+            bottom: 4,
+          ),
+          child: InkWell(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () => print('ask Abdullah'),
+            child: Assets.images.askDrahim.image(fit: BoxFit.cover),
+          ),
+        ),
+      ],
       toolbarHeight: 30,
       flexibleSpace: FlexibleSpaceBar(
         background: ClipRect(
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+            filter: ImageFilter.blur(
+              sigmaX: 15.0,
+              sigmaY: 15.0,
+            ),
             child: DecoratedBox(
               decoration: BoxDecoration(
                 border: isScrolling
                     ? Border(
                         bottom: BorderSide(
-                          color: Colors.black.withValues(
-                            alpha: 0.1,
-                          ),
+                          color: Colors.black.withValues(alpha: 0.1),
                         ),
                       )
                     : null,
-                color: AppTheme.backgroundColor.withValues(
-                  alpha: 0.6,
-                ),
+                color: AppTheme.backgroundColor.withValues(alpha: 0.6),
               ),
             ),
           ),

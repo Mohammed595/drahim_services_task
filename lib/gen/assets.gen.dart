@@ -20,6 +20,10 @@ class $AssetsImagesGen {
   AssetGenImage get analysisDark =>
       const AssetGenImage('assets/images/analysis_dark.png');
 
+  /// File path: assets/images/ask_drahim.png
+  AssetGenImage get askDrahim =>
+      const AssetGenImage('assets/images/ask_drahim.png');
+
   /// File path: assets/images/auto_deduction.png
   AssetGenImage get autoDeduction =>
       const AssetGenImage('assets/images/auto_deduction.png');
@@ -172,6 +176,7 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
         analysis,
         analysisDark,
+        askDrahim,
         autoDeduction,
         autoDeductionDark,
         budgets,
