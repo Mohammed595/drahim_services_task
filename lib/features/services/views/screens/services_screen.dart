@@ -1,5 +1,6 @@
 import 'package:drahim_services_task/features/services/view_models/scroll_state_view_model.dart';
 import 'package:drahim_services_task/features/services/view_models/services_view_model/services_provider.dart';
+import 'package:drahim_services_task/features/services/views/widgets/drahim_services_title.dart';
 import 'package:drahim_services_task/features/services/views/widgets/services_app_bar.dart';
 import 'package:drahim_services_task/features/services/views/widgets/services_list.dart';
 import 'package:drahim_services_task/features/services/views/widgets/services_loading_skeleton.dart';
@@ -14,22 +15,22 @@ class ServicesScreen extends ConsumerStatefulWidget {
 }
 
 class _ServicesScreenState extends ConsumerState<ServicesScreen> {
-  final controller = ScrollController();
+  final scrollController = ScrollController();
 
   @override
   void dispose() {
     super.dispose();
-    controller.dispose();
+    scrollController.dispose();
   }
 
   @override
   void initState() {
     super.initState();
-    controller.addListener(_onScroll);
+    scrollController.addListener(_onScroll);
   }
 
   void _onScroll() {
-    final isScrolling = controller.position.pixels > 30;
+    final isScrolling = scrollController.position.pixels > 30;
     ref.read(scrollStateProvider.notifier).setScrolling(isScrolling);
   }
 
@@ -40,16 +41,13 @@ class _ServicesScreenState extends ConsumerState<ServicesScreen> {
 
     return Scaffold(
       body: CustomScrollView(
-        controller: controller,
+        controller: scrollController,
         slivers: [
           ServicesAppBar(isScrolling: isScrolling),
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-              child: Text(
-                'Darahim Service',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
+              child: DrahimServicesTitle(),
             ),
           ),
           state.maybeWhen(
